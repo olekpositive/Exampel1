@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+</head>
+<body>
+
+
+    <div id="app"></div>
+    
+    <script type="text/babel">
+        class Names extends React.Component {
+            render() {
+                const names = ['React', 'Angular', 'Next.js']
+                const namesList = names.map(name => <li>{name}</li>)
+                const showNames = false
+
+                return (
+                    <div> {showNames ? <ul>{namesList}</ul> : 'Brak imion'}</div>
+                )
+            }
+        }
+
+        class HeadLine extends React.Component { 
+            render() { //JSX
+                const title = 'ReactJS'
+
+                return (
+                <div>
+                    <h1>Hello { title}</h1>              
+                       <Names />       
+                </div> )
+            }
+        }
+       
+
+        ReactDOM.render(<HeadLine />, document.querySelector('#app'))
+    </script>
+</body>
+</html>
